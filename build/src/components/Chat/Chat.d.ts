@@ -20,6 +20,11 @@ interface IChatProps {
     messageHistory: IMessage[] | string;
     parse?: (message: string) => void;
     actions?: object;
+    onThumbUpClick?: () => void;
+    onThumbDownClick?: () => void;
+    patchUrl?: string;
+    chatSessionId?: number;
+    beUserMessageId?: number;
 }
-declare const Chat: ({ state, setState, widgetRegistry, messageParser, parse, customComponents, actionProvider, botName, customStyles, headerText, customMessages, placeholderText, validator, setMessageContainerRef, disableScrollToBottom, messageHistory, actions, }: IChatProps) => JSX.Element;
+declare const Chat: ({ state, setState, widgetRegistry, messageParser, parse, customComponents, actionProvider, botName, customStyles, headerText, customMessages, placeholderText, validator, setMessageContainerRef, disableScrollToBottom, messageHistory, actions, onThumbUpClick, onThumbDownClick, patchUrl, chatSessionId, beUserMessageId, }: IChatProps) => JSX.Element;
 export default Chat;

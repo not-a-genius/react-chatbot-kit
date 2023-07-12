@@ -29,6 +29,10 @@ interface IChatbotProps {
   validator?: (input: string) => Boolean;
   runInitialMessagesWithHistory?: Boolean;
   disableScrollToBottom?: boolean;
+  onThumbUpClick?: () => void;
+  onThumbDownClick?: () => void;
+  patchUrl?: string;
+  chatSessionId: number;
 }
 
 const Chatbot = ({
@@ -42,6 +46,10 @@ const Chatbot = ({
   runInitialMessagesWithHistory,
   disableScrollToBottom,
   validator,
+  onThumbUpClick,
+  onThumbDownClick,
+  chatSessionId,
+  patchUrl,
   ...rest
 }: IChatbotProps) => {
   const {
@@ -96,6 +104,10 @@ const Chatbot = ({
         validator={validator}
         messageHistory={messageHistory}
         disableScrollToBottom={disableScrollToBottom}
+        onThumbUpClick={onThumbUpClick}
+        onThumbDownClick={onThumbDownClick}
+        patchUrl={patchUrl}
+        chatSessionId={chatSessionId}
       />
     );
   } else {
@@ -121,6 +133,10 @@ const Chatbot = ({
             validator={validator}
             messageHistory={messageHistory}
             disableScrollToBottom={disableScrollToBottom}
+            onThumbUpClick={onThumbUpClick}
+            onThumbDownClick={onThumbDownClick}
+            patchUrl={patchUrl}
+            chatSessionId={chatSessionId}
           />
         </MessageParser>
       </ActionProvider>

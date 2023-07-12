@@ -11,6 +11,10 @@ interface IChatbotProps {
     validator?: (input: string) => Boolean;
     runInitialMessagesWithHistory?: Boolean;
     disableScrollToBottom?: boolean;
+    onThumbUpClick?: () => void;
+    onThumbDownClick?: () => void;
+    patchUrl?: string;
+    chatSessionId: number;
 }
-declare const Chatbot: ({ actionProvider, messageParser, config, headerText, placeholderText, saveMessages, messageHistory, runInitialMessagesWithHistory, disableScrollToBottom, validator, ...rest }: IChatbotProps) => JSX.Element;
+declare const Chatbot: ({ actionProvider, messageParser, config, headerText, placeholderText, saveMessages, messageHistory, runInitialMessagesWithHistory, disableScrollToBottom, validator, onThumbUpClick, onThumbDownClick, chatSessionId, patchUrl, ...rest }: IChatbotProps) => JSX.Element;
 export default Chatbot;

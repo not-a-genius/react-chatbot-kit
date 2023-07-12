@@ -41,10 +41,12 @@ export const createChatMessage = (message: string, type: string) => {
 
 export const createChatBotMessage = (
   message: string,
-  options: IMessageOptions
+  options: IMessageOptions,
+  isFixedMessage?: boolean
 ) => {
   return {
     ...createChatMessage(message, 'bot'),
+    isFixedMessage: isFixedMessage,
     ...options,
     loading: true,
   };

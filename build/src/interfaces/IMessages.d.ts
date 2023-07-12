@@ -16,4 +16,6 @@ export interface IMessage extends IBaseMessage {
     delay?: number;
     withAvatar?: boolean;
     payload?: any;
+    isFixedMessage?: boolean;
+    beUserMessageId: number;
 }

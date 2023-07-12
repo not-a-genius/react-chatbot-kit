@@ -1,11 +1,16 @@
 {
-  "name": "react-chatbot-kit",
+  "name": "custom-react-chatbot-kit",
   "version": "2.1.2",
   "homepage": "https://fredrikoseberg.github.io/react-chatbot-kit-docs/",
   "description": "Fully customizable chatbot kit for react.",
   "main": "build/index.js",
   "types": "build/src/index.d.ts",
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.13.6",
+    "axios": "0.21.4",
     "react-conditionally-render": "^1.0.2"
   },
   "scripts": {

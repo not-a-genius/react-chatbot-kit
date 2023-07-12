@@ -3,6 +3,7 @@ import ConditionallyRender from 'react-conditionally-render';
 
 import UserChatMessage from '../UserChatMessage/UserChatMessage';
 import ChatbotMessage from '../ChatbotMessage/ChatbotMessage';
+import SendRoundedIcon from '@mui/icons-material/SendRounded';
 
 import {
   botMessage,
@@ -40,6 +41,11 @@ interface IChatProps {
   messageHistory: IMessage[] | string;
   parse?: (message: string) => void;
   actions?: object;
+  onThumbUpClick?: () => void;
+  onThumbDownClick?: () => void;
+  patchUrl?: string;
+  chatSessionId?: number;
+  beUserMessageId?: number;
 }
 
 const Chat = ({
@@ -60,6 +66,11 @@ const Chat = ({
   disableScrollToBottom,
   messageHistory,
   actions,
+  onThumbUpClick,
+  onThumbDownClick,
+  patchUrl,
+  chatSessionId,
+  beUserMessageId,
 }: IChatProps) => {
   const { messages } = state;
   const chatContainerRef = useRef(null);
@@ -188,6 +199,8 @@ const Chat = ({
       widgetRegistry,
       messages,
       actions,
+      onThumbUpClick,
+      onThumbDownClick,
     };
 
     if (messageObject.widget) {
@@ -204,6 +217,11 @@ const Chat = ({
             withAvatar={withAvatar}
             {...chatbotMessageProps}
             key={messageObject.id}
+            onThumbUpClick={onThumbUpClick}
+            onThumbDownClick={onThumbDownClick}
+            patchUrl={patchUrl}
+            chatSessionId={chatSessionId}
+            beUserMessageId={beUserMessageId}
           />
           <ConditionallyRender
             condition={!chatbotMessageProps.loading}
@@ -222,6 +240,12 @@ const Chat = ({
         customComponents={customComponents}
         messages={messages}
         setState={setState}
+        onThumbUpClick={onThumbUpClick}
+        onThumbDownClick={onThumbDownClick}
+        isFixedMessage={messageObject.isFixedMessage}
+        patchUrl={patchUrl}
+        beUserMessageId={messageObject.beUserMessageId}
+        chatSessionId={chatSessionId}
       />
     );
   };
@@ -318,7 +342,7 @@ const Chat = ({
               className="react-chatbot-kit-chat-btn-send"
               style={customButtonStyle}
             >
-              <ChatIcon className="react-chatbot-kit-chat-btn-send-icon" />
+              <SendRoundedIcon className="react-chatbot-kit-chat-btn-send-icon" />
             </button>
           </form>
         </div>

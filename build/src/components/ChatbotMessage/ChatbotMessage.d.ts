@@ -13,6 +13,13 @@ interface IChatbotMessageProps {
     customStyles: {
         backgroundColor: string;
     };
+    onThumbUpClick?: () => void;
+    onThumbDownClick?: () => void;
+    isFixedMessage?: boolean;
+    beUserMessageId?: number;
+    beBotMessageId?: number;
+    chatSessionId?: number;
+    patchUrl?: string;
 }
-declare const ChatbotMessage: ({ message, withAvatar, loading, messages, customComponents, setState, customStyles, delay, id, }: IChatbotMessageProps) => JSX.Element;
+declare const ChatbotMessage: ({ message, withAvatar, loading, messages, customComponents, setState, customStyles, delay, id, onThumbUpClick, onThumbDownClick, isFixedMessage, beUserMessageId, beBotMessageId, chatSessionId, patchUrl, }: IChatbotMessageProps) => JSX.Element;
 export default ChatbotMessage;
